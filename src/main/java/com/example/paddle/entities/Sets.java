@@ -1,4 +1,4 @@
-package Entities;
+package com.example.paddle.entities;
 
 import jakarta.persistence.*;
 
