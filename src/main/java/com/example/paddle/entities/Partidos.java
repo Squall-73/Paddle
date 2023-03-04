@@ -12,24 +12,24 @@ public class Partidos {
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    int id_equipo_A;
-    int id_equipo_B;
-    int puntaje_A;
-    int puntaje_B;
+    int idEquipoA;
+    int idEquipoB;
+    int puntajeA;
+    int puntajeB;
     boolean resultado;
-    int id_ganador;
-    int id_ronda;
+    int idGanador;
+    int idRonda;
 
-    public Partidos(){}
 
-    public Partidos(int id_equipo_A, int id_equipo_B, int puntaje_A, int puntaje_B, boolean resultado, int id_ganador, int id_ronda) {
-        this.id_equipo_A = id_equipo_A;
-        this.id_equipo_B = id_equipo_B;
-        this.puntaje_A = puntaje_A;
-        this.puntaje_B = puntaje_B;
+
+    public Partidos(int idEquipoA, int idEquipoB, int puntajeA, int puntajeB, boolean resultado, int idGanador, int idRonda) {
+        this.idEquipoA = idEquipoA;
+        this.idEquipoB = idEquipoB;
+        this.puntajeA = puntajeA;
+        this.puntajeB = puntajeB;
         this.resultado = resultado;
-        this.id_ganador = id_ganador;
-        this.id_ronda = id_ronda;
+        this.idGanador = idGanador;
+        this.idRonda = idRonda;
     }
 
     public int getId() {
@@ -40,36 +40,36 @@ public class Partidos {
         this.id = id;
     }
 
-    public int getId_equipo_A() {
-        return id_equipo_A;
+    public int getIdEquipoA() {
+        return idEquipoA;
     }
 
-    public void setId_equipo_A(int id_equipo_A) {
-        this.id_equipo_A = id_equipo_A;
+    public void setIdEquipoA(int idEquipoA) {
+        this.idEquipoA = idEquipoA;
     }
 
-    public int getId_equipo_B() {
-        return id_equipo_B;
+    public int getIdEquipoB() {
+        return idEquipoB;
     }
 
-    public void setId_equipo_B(int id_equipo_B) {
-        this.id_equipo_B = id_equipo_B;
+    public void setIdEquipoB(int idEquipoB) {
+        this.idEquipoB = idEquipoB;
     }
 
-    public int getPuntaje_A() {
-        return puntaje_A;
+    public int getPuntajeA() {
+        return puntajeA;
     }
 
-    public void setPuntaje_A(int puntaje_A) {
-        this.puntaje_A = puntaje_A;
+    public void setPuntajeA(int puntajeA) {
+        this.puntajeA = puntajeA;
     }
 
-    public int getPuntaje_B() {
-        return puntaje_B;
+    public int getPuntajeB() {
+        return puntajeB;
     }
 
-    public void setPuntaje_B(int puntaje_B) {
-        this.puntaje_B = puntaje_B;
+    public void setPuntajeB(int puntajeB) {
+        this.puntajeB = puntajeB;
     }
 
     public boolean isResultado() {
@@ -80,19 +80,19 @@ public class Partidos {
         this.resultado = resultado;
     }
 
-    public int getId_ganador() {
-        return id_ganador;
+    public int getIdGanador() {
+        return idGanador;
     }
 
-    public void setId_ganador(int id_ganador) {
-        this.id_ganador = id_ganador;
+    public void setIdGanador(int idGanador) {
+        this.idGanador = idGanador;
     }
 
-    public int getId_ronda() {
-        return id_ronda;
+    public int getIdRonda() {
+        return idRonda;
     }
 
-    public void setId_ronda(int id_ronda) {
-        this.id_ronda = id_ronda;
+    public void setIdRonda(int idRonda) {
+        this.idRonda = idRonda;
     }
 }

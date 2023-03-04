@@ -12,46 +12,44 @@ public class Ronda {
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    int id_siguiente;
-    int cantidad_partidos;
-    int id_torneo;
+    int idSiguiente;
+    int cantidadPartidos;
+    int idTorneo;
 
-    public Ronda(){}
-    public Ronda(int id_siguiente, int cantidad_partidos, int id_torneo) {
-        this.id_siguiente = id_siguiente;
-        this.cantidad_partidos = cantidad_partidos;
-        this.id_torneo = id_torneo;
+
+    public Ronda(int idSiguiente, int cantidadPartidos, int idTorneo) {
+        this.idSiguiente = idSiguiente;
+        this.cantidadPartidos = cantidadPartidos;
+        this.idTorneo = idTorneo;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id;}
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public int getId_siguiente() {
-        return id_siguiente;
+    public int getIdSiguiente() {
+        return idSiguiente;
     }
 
-    public void setId_siguiente(int id_siguiente) {
-        this.id_siguiente = id_siguiente;
+    public void setIdSiguiente(int idSiguiente) {
+        this.idSiguiente = idSiguiente;
     }
 
-    public int getCantidad_partidos() {
-        return cantidad_partidos;
+    public int getCantidadPartidos() {
+        return cantidadPartidos;
     }
 
-    public void setCantidad_partidos(int cantidad_partidos) {
-        this.cantidad_partidos = cantidad_partidos;
+    public void setCantidadPartidos(int cantidadPartidos) {
+        this.cantidadPartidos = cantidadPartidos;
     }
 
-    public int getId_torneo() {
-        return id_torneo;
+    public int getIdTorneo() {
+        return idTorneo;
     }
 
-    public void setId_torneo(int id_torneo) {
-        this.id_torneo = id_torneo;
+    public void setIdTorneo(int idTorneo) {
+        this.idTorneo = idTorneo;
     }
 }

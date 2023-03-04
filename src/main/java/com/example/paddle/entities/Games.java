@@ -15,15 +15,15 @@ public class Games {
     int orden;
     int puntos;
     boolean win;
-    int id_set;
+    int idSet;
 
-    public Games(){}
 
-    public Games(int orden, int puntos, boolean win, int id_set) {
+
+    public Games(int orden, int puntos, boolean win, int idSet) {
         this.orden = orden;
         this.puntos = puntos;
         this.win = win;
-        this.id_set = id_set;
+        this.idSet = idSet;
     }
 
     public int getId() {
@@ -58,11 +58,11 @@ public class Games {
         this.win = win;
     }
 
-    public int getId_set() {
-        return id_set;
+    public int getIdSet() {
+        return idSet;
     }
 
-    public void setId_set(int id_set) {
-        this.id_set = id_set;
+    public void setIdSet(int idSet) {
+        this.idSet = idSet;
     }
 }

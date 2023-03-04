@@ -12,20 +12,19 @@ public class Equipo {
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    int id_jugador_A;
-    int id_jugador_B;
+    int idJugadorA;
+    int idJugadorB;
 
-    public Equipo(){}
 
     // Constructor para equipo de single
-    public Equipo( int id_jugador_A) {
-        this.id_jugador_A = id_jugador_A;
+    public Equipo( int idJugadorA) {
+        this.idJugadorA = idJugadorA;
     }
 
     // Constructor para equipo de dobles
-    public Equipo(int id_jugador_A, int id_jugador_B) {
-        this.id_jugador_A = id_jugador_A;
-        this.id_jugador_B = id_jugador_B;
+    public Equipo(int idJugadorA, int idJugadorB) {
+        this.idJugadorA = idJugadorA;
+        this.idJugadorB = idJugadorB;
     }
 
     public int getId() {
@@ -36,19 +35,19 @@ public class Equipo {
         this.id = id;
     }
 
-    public int getId_jugador_A() {
-        return id_jugador_A;
+    public int getIdJugadorA() {
+        return idJugadorA;
     }
 
-    public void setId_jugador_A(int id_jugador_A) {
-        this.id_jugador_A = id_jugador_A;
+    public void setIdJugadorA(int idJugadorA) {
+        this.idJugadorA = idJugadorA;
     }
 
-    public int getId_jugador_B() {
-        return id_jugador_B;
+    public int getIdJugadorB() {
+        return idJugadorB;
     }
 
-    public void setId_jugador_B(int id_jugador_B) {
-        this.id_jugador_B = id_jugador_B;
+    public void setIdJugadorB(int idJugadorB) {
+        this.idJugadorB = idJugadorB;
     }
 }

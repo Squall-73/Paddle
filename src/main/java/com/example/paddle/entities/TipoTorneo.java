@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 
 @Table(name="tipo_torneo")
-public class Tipo_torneo {
+public class TipoTorneo {
 
     //Primary key
     @Id
@@ -15,9 +15,8 @@ public class Tipo_torneo {
     String tipo;
     int puntaje;
 
-    public Tipo_torneo() {}
 
-    public Tipo_torneo( String tipo, int puntaje) {
+    public TipoTorneo(String tipo, int puntaje) {
         this.tipo = tipo;
         this.puntaje = puntaje;
     }

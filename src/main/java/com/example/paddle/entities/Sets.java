@@ -15,16 +15,15 @@ public class Sets {
     int orden;
     int games;
     boolean win;
-    int id_partido;
-    int id_equipo;
+    int idPartido;
+    int idEquipo;
 
-    public Sets(){};
-    public Sets(int orden, int games, boolean win, int id_partido, int id_equipo) {
+     public Sets(int orden, int games, boolean win, int idPartido, int idEquipo) {
         this.orden = orden;
         this.games = games;
         this.win = win;
-        this.id_partido = id_partido;
-        this.id_equipo = id_equipo;
+        this.idPartido = idPartido;
+        this.idEquipo = idEquipo;
     }
 
     public int getId() {
@@ -59,19 +58,19 @@ public class Sets {
         this.win = win;
     }
 
-    public int getId_partido() {
-        return id_partido;
+    public int getIdPartido() {
+        return idPartido;
     }
 
-    public void setId_partido(int id_partido) {
-        this.id_partido = id_partido;
+    public void setIdPartido(int idPartido) {
+        this.idPartido = idPartido;
     }
 
-    public int getId_equipo() {
-        return id_equipo;
+    public int getIdEquipo() {
+        return idEquipo;
     }
 
-    public void setId_equipo(int id_equipo) {
-        this.id_equipo = id_equipo;
+    public void setIdEquipo(int idEquipo) {
+        this.idEquipo = idEquipo;
     }
 }
