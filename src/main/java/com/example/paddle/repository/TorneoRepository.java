@@ -11,7 +11,6 @@ import java.util.Optional;
 //indico que esun repositorio y habilito los metodos principales select, create, update, delete
 public interface TorneoRepository extends JpaRepository<Torneo,Integer> {
 
-    Optional<Torneo> findByNombre_torneo(String nombre_torneo);
-    boolean existsByNombre_torneo(String nombre_torneo);
-
+    Torneo findByNombre_torneo(String nombre_torneo);
+    
 }
