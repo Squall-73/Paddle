@@ -2,8 +2,9 @@ package com.example.paddle.entities;
 
 import jakarta.persistence.*;
 
-@Entity
+import java.util.List;
 
+@Entity
 @Table(name="partidos")
 public class Partidos {
 
@@ -11,25 +12,30 @@ public class Partidos {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    int idEquipoA;
-    int idEquipoB;
-    int puntajeA;
-    int puntajeB;
-    boolean resultado;
-    int idGanador;
-    int idRonda;
+    private int id;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade = CascadeType.ALL)
+    private List<Equipo> Equipo;
 
+    //Un partido tiene varios sets de donde saca el puntaje
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade = CascadeType.ALL)
+    private List<Sets> Set;
+    private boolean resultado;
+    private int idGanador;
 
+    @ManyToOne
+    @JoinColumn(name = "id_ronda")
+    private Ronda ronda;
 
-    public Partidos(int idEquipoA, int idEquipoB, int puntajeA, int puntajeB, boolean resultado, int idGanador, int idRonda) {
-        this.idEquipoA = idEquipoA;
-        this.idEquipoB = idEquipoB;
-        this.puntajeA = puntajeA;
-        this.puntajeB = puntajeB;
+    public Partidos() {
+    }
+
+    public Partidos(int id, List<com.example.paddle.entities.Equipo> equipo, List<Sets> set, boolean resultado, int idGanador, Ronda ronda) {
+        this.id = id;
+        Equipo = equipo;
+        Set = set;
         this.resultado = resultado;
         this.idGanador = idGanador;
-        this.idRonda = idRonda;
+        this.ronda = ronda;
     }
 
     public int getId() {
@@ -40,36 +46,20 @@ public class Partidos {
         this.id = id;
     }
 
-    public int getIdEquipoA() {
-        return idEquipoA;
+    public List<com.example.paddle.entities.Equipo> getEquipo() {
+        return Equipo;
     }
 
-    public void setIdEquipoA(int idEquipoA) {
-        this.idEquipoA = idEquipoA;
+    public void setEquipo(List<com.example.paddle.entities.Equipo> equipo) {
+        Equipo = equipo;
     }
 
-    public int getIdEquipoB() {
-        return idEquipoB;
+    public List<Sets> getSet() {
+        return Set;
     }
 
-    public void setIdEquipoB(int idEquipoB) {
-        this.idEquipoB = idEquipoB;
-    }
-
-    public int getPuntajeA() {
-        return puntajeA;
-    }
-
-    public void setPuntajeA(int puntajeA) {
-        this.puntajeA = puntajeA;
-    }
-
-    public int getPuntajeB() {
-        return puntajeB;
-    }
-
-    public void setPuntajeB(int puntajeB) {
-        this.puntajeB = puntajeB;
+    public void setSet(List<Sets> set) {
+        Set = set;
     }
 
     public boolean isResultado() {
@@ -88,11 +78,11 @@ public class Partidos {
         this.idGanador = idGanador;
     }
 
-    public int getIdRonda() {
-        return idRonda;
+    public Ronda getRonda() {
+        return ronda;
     }
 
-    public void setIdRonda(int idRonda) {
-        this.idRonda = idRonda;
+    public void setRonda(Ronda ronda) {
+        this.ronda = ronda;
     }
 }

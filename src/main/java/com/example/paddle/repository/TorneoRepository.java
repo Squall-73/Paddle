@@ -12,8 +12,6 @@ import java.util.List;
 
 public interface TorneoRepository extends JpaRepository<Torneo,Integer> {
 
-    //Genera una consulta que busca todos los torneos de ese tipo
-    List<Torneo> findByTipo(String tipo);
-    List<Torneo> findByID(int id);
+    List<Torneo> findById(int id);
     
 }

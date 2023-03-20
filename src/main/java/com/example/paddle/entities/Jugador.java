@@ -10,15 +10,16 @@ public class Jugador {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String nombre;
-    String pais;
-    String tipoJuego;
-    int edad;
-    int puestoRanking;
-    int puntajeRanking;
+    private int id;
+    private String nombre;
+    private String pais;
+    private String tipoJuego;
+    private int edad;
+    private int puestoRanking;
+    private int puntajeRanking;
 
-
+    public Jugador() {
+    }
 
     public Jugador(String nombre, String pais, String tipoJuego, int edad, int puestoRanking, int puntajeRanking) {
         this.nombre = nombre;

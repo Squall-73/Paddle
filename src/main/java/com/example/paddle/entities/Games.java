@@ -2,6 +2,8 @@ package com.example.paddle.entities;
 import jakarta.persistence.*;
 
 
+
+
 @Entity
 
 @Table(name="games")
@@ -11,19 +13,21 @@ public class Games {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    int orden;
-    int puntos;
-    boolean win;
-    int idSet;
+    private int id;
+    private int orden;
+    private int puntos;
+    private boolean win;
+    @ManyToOne
+    @JoinColumn(name = "id_set")
+    private Sets set;
+    public Games() {
+    }
 
-
-
-    public Games(int orden, int puntos, boolean win, int idSet) {
+    public Games(int orden, int puntos, boolean win, Sets set) {
         this.orden = orden;
         this.puntos = puntos;
         this.win = win;
-        this.idSet = idSet;
+        this.set = set;
     }
 
     public int getId() {
@@ -58,11 +62,11 @@ public class Games {
         this.win = win;
     }
 
-    public int getIdSet() {
-        return idSet;
+    public Sets getSet() {
+        return set;
     }
 
-    public void setIdSet(int idSet) {
-        this.idSet = idSet;
+    public void setSet(Sets set) {
+        this.set = set;
     }
 }

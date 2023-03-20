@@ -11,14 +11,17 @@ public class Sets {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    int orden;
-    int games;
-    boolean win;
-    int idPartido;
-    int idEquipo;
+    private int id;
+    private int orden;
+    private int games;
+    private boolean win;
+    private int idPartido;
+    private int idEquipo;
 
-     public Sets(int orden, int games, boolean win, int idPartido, int idEquipo) {
+    public Sets() {
+    }
+
+    public Sets(int orden, int games, boolean win, int idPartido, int idEquipo) {
         this.orden = orden;
         this.games = games;
         this.win = win;

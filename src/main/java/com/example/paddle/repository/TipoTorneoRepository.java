@@ -12,6 +12,6 @@ import java.util.*;
 public interface TipoTorneoRepository extends JpaRepository<TipoTorneo,Integer> {
 
 
-    List<TipoTorneo> findByID(int id);
+    List<TipoTorneo> findById(int id);
 
 }

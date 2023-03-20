@@ -1,5 +1,8 @@
 package com.example.paddle.entities;
 import jakarta.persistence.*;
+import com.example.paddle.entities.Jugador;
+
+import java.util.List;
 
 
 @Entity
@@ -9,23 +12,22 @@ public class Equipo {
 
     //Primary key
     @Id
-    //campo ID auonumérico
+    //campo ID autonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    int idJugadorA;
-    int idJugadorB;
+    private int id;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade = CascadeType.ALL)
+    private List<Jugador> Jugadores;
 
 
-    // Constructor para equipo de single
-    public Equipo( int idJugadorA) {
-        this.idJugadorA = idJugadorA;
+    public Equipo() {
     }
 
-    // Constructor para equipo de dobles
-    public Equipo(int idJugadorA, int idJugadorB) {
-        this.idJugadorA = idJugadorA;
-        this.idJugadorB = idJugadorB;
+
+    public Equipo(List<Jugador> jugadores) {
+        Jugadores = jugadores;
     }
+
+
 
     public int getId() {
         return id;
@@ -35,19 +37,11 @@ public class Equipo {
         this.id = id;
     }
 
-    public int getIdJugadorA() {
-        return idJugadorA;
+    public List<Jugador> getJugadores() {
+        return Jugadores;
     }
 
-    public void setIdJugadorA(int idJugadorA) {
-        this.idJugadorA = idJugadorA;
-    }
-
-    public int getIdJugadorB() {
-        return idJugadorB;
-    }
-
-    public void setIdJugadorB(int idJugadorB) {
-        this.idJugadorB = idJugadorB;
+    public void setJugadores(List<Jugador> jugadores) {
+        Jugadores = jugadores;
     }
 }

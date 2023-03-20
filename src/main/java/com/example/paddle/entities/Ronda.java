@@ -11,19 +11,25 @@ public class Ronda {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    int idSiguiente;
-    int cantidadPartidos;
-    int idTorneo;
-
-
-    public Ronda(int idSiguiente, int cantidadPartidos, int idTorneo) {
-        this.idSiguiente = idSiguiente;
-        this.cantidadPartidos = cantidadPartidos;
-        this.idTorneo = idTorneo;
+    private int id;
+    private int idSiguiente;
+    private int cantidadPartidos;
+    @ManyToOne
+    @JoinColumn(name="id_torneo")
+    private Torneo Torneo;
+    public Ronda() {
     }
 
-    public int getId() { return id;}
+    public Ronda(int id, int idSiguiente, int cantidadPartidos, com.example.paddle.entities.Torneo torneo) {
+        this.id = id;
+        this.idSiguiente = idSiguiente;
+        this.cantidadPartidos = cantidadPartidos;
+        Torneo = torneo;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -45,11 +51,11 @@ public class Ronda {
         this.cantidadPartidos = cantidadPartidos;
     }
 
-    public int getIdTorneo() {
-        return idTorneo;
+    public com.example.paddle.entities.Torneo getTorneo() {
+        return Torneo;
     }
 
-    public void setIdTorneo(int idTorneo) {
-        this.idTorneo = idTorneo;
+    public void setTorneo(com.example.paddle.entities.Torneo torneo) {
+        Torneo = torneo;
     }
 }

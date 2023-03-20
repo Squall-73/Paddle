@@ -12,16 +12,21 @@ public class Torneo {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    int idTipo;
-    int idCampeon;
-    String fechaInicio;
-    String fechaFin;
-    String nombre;
+    private int id;
+    @OneToOne
+    @JoinColumn(name = "id_tipo")
+    private TipoTorneo tipoTorneo;
+    private int idCampeon;
+    private String fechaInicio;
+    private String fechaFin;
+    private String nombre;
 
+    public Torneo() {
+    }
 
-    public Torneo(int idTipo, int idCampeon, String fechaInicio, String fechaFin, String nombre) {
-        this.idTipo = idTipo;
+    public Torneo(int id, TipoTorneo tipoTorneo, int idCampeon, String fechaInicio, String fechaFin, String nombre) {
+        this.id = id;
+        this.tipoTorneo = tipoTorneo;
         this.idCampeon = idCampeon;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -36,12 +41,12 @@ public class Torneo {
         this.id = id;
     }
 
-    public int getIdTipo() {
-        return idTipo;
+    public TipoTorneo getTipoTorneo() {
+        return tipoTorneo;
     }
 
-    public void setIdTipo(int idTipo) {
-        this.idTipo = idTipo;
+    public void setTipoTorneo(TipoTorneo tipoTorneo) {
+        this.tipoTorneo = tipoTorneo;
     }
 
     public int getIdCampeon() {

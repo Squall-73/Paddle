@@ -12,5 +12,5 @@ import java.util.List;
 //Indico que es un repositorio y habilito los metodos principales select, create, update, delete
 public interface GamesRepository extends JpaRepository<Games, Integer> {
 
-    List<Games> findByID(int id);
+    List<Games> findById(int id);
 }

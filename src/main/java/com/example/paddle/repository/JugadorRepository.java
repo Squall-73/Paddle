@@ -9,7 +9,7 @@ import java.util.List;
 //Indico que es un repositorio y habilito los metodos principales select, create, update, delete
 public interface JugadorRepository extends JpaRepository<Jugador, Integer> {
 
-    List<Jugador> findByID(int id);
+    List<Jugador> findById(int id);
     //Genera una consulta que busca todos los jugadores de ese pais
     List<Jugador> findByPais(String pais);
 

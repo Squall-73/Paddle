@@ -10,5 +10,5 @@ import java.util.List;
 //Indico que es un repositorio y habilito los metodos principales select, create, update, delete
 public interface RondaRepository extends JpaRepository<Ronda, Integer> {
 
-    List<Ronda> findByID(int id);
+    List<Ronda> findById(int id);
 }

@@ -11,10 +11,12 @@ public class TipoTorneo {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String tipo;
-    int puntaje;
+    private int id;
+    private String tipo;
+    private int puntaje;
 
+    public TipoTorneo() {
+    }
 
     public TipoTorneo(String tipo, int puntaje) {
         this.tipo = tipo;
