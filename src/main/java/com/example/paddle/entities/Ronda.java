@@ -1,6 +1,8 @@
 package com.example.paddle.entities;
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 
 @Entity
 
@@ -11,35 +13,32 @@ public class Ronda {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int idSiguiente;
+    private long id;
+    private long idSiguiente;
     private int cantidadPartidos;
     @ManyToOne
-    @JoinColumn(name="id_torneo")
+    @JoinColumn(name="idTorneo")
     private Torneo Torneo;
+    @ManyToOne
+    @JoinColumn(name="idSiguiente", insertable=false, updatable=false)
+    private Ronda rondaSiguiente;
     public Ronda() {
     }
 
-    public Ronda(int id, int idSiguiente, int cantidadPartidos, com.example.paddle.entities.Torneo torneo) {
-        this.id = id;
-        this.idSiguiente = idSiguiente;
-        this.cantidadPartidos = cantidadPartidos;
-        Torneo = torneo;
-    }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getIdSiguiente() {
+    public long getIdSiguiente() {
         return idSiguiente;
     }
 
-    public void setIdSiguiente(int idSiguiente) {
+    public void setIdSiguiente(long idSiguiente) {
         this.idSiguiente = idSiguiente;
     }
 
@@ -57,5 +56,18 @@ public class Ronda {
 
     public void setTorneo(com.example.paddle.entities.Torneo torneo) {
         Torneo = torneo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ronda ronda = (Ronda) o;
+        return id == ronda.id && idSiguiente == ronda.idSiguiente && cantidadPartidos == ronda.cantidadPartidos && Objects.equals(Torneo, ronda.Torneo) && Objects.equals(rondaSiguiente, ronda.rondaSiguiente);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, idSiguiente, cantidadPartidos, Torneo, rondaSiguiente);
     }
 }

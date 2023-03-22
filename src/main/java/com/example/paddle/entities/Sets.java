@@ -2,6 +2,8 @@ package com.example.paddle.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 
 @Table(name="sets")
@@ -11,29 +13,28 @@ public class Sets {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private int orden;
     private int games;
     private boolean win;
-    private int idPartido;
-    private int idEquipo;
+
+    @ManyToOne
+    @JoinColumn(name = "idPartido")
+    private Partidos partido;
+
+    @ManyToOne
+    @JoinColumn(name = "idEquipo")
+    private Equipo equipo;
+
 
     public Sets() {
     }
 
-    public Sets(int orden, int games, boolean win, int idPartido, int idEquipo) {
-        this.orden = orden;
-        this.games = games;
-        this.win = win;
-        this.idPartido = idPartido;
-        this.idEquipo = idEquipo;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -61,19 +62,32 @@ public class Sets {
         this.win = win;
     }
 
-    public int getIdPartido() {
-        return idPartido;
+    public Partidos getPartido() {
+        return partido;
     }
 
-    public void setIdPartido(int idPartido) {
-        this.idPartido = idPartido;
+    public void setPartido(Partidos partido) {
+        this.partido = partido;
     }
 
-    public int getIdEquipo() {
-        return idEquipo;
+    public Equipo getEquipo() {
+        return equipo;
     }
 
-    public void setIdEquipo(int idEquipo) {
-        this.idEquipo = idEquipo;
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sets sets = (Sets) o;
+        return id == sets.id && orden == sets.orden && games == sets.games && win == sets.win && Objects.equals(partido, sets.partido) && Objects.equals(equipo, sets.equipo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, orden, games, win, partido, equipo);
     }
 }

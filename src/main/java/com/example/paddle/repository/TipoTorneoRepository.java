@@ -9,9 +9,9 @@ import java.util.*;
 
 @Repository
 //Indico que es un repositorio y habilito los metodos principales select, create, update, delete
-public interface TipoTorneoRepository extends JpaRepository<TipoTorneo,Integer> {
+public interface TipoTorneoRepository extends JpaRepository<TipoTorneo,Long> {
 
 
-    List<TipoTorneo> findById(int id);
+    List<TipoTorneo> findById(long id);
 
 }

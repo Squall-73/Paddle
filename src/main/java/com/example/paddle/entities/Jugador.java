@@ -1,6 +1,8 @@
 package com.example.paddle.entities;
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 
 @Table(name="jugador")
@@ -10,7 +12,7 @@ public class Jugador {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String nombre;
     private String pais;
     private String tipoJuego;
@@ -21,20 +23,11 @@ public class Jugador {
     public Jugador() {
     }
 
-    public Jugador(String nombre, String pais, String tipoJuego, int edad, int puestoRanking, int puntajeRanking) {
-        this.nombre = nombre;
-        this.pais = pais;
-        this.tipoJuego = tipoJuego;
-        this.edad = edad;
-        this.puestoRanking = puestoRanking;
-        this.puntajeRanking = puntajeRanking;
-    }
-
-    public int getId() {
+     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -84,5 +77,18 @@ public class Jugador {
 
     public void setPuntajeRanking(int puntajeRanking) {
         this.puntajeRanking = puntajeRanking;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jugador jugador = (Jugador) o;
+        return id == jugador.id && edad == jugador.edad && puestoRanking == jugador.puestoRanking && puntajeRanking == jugador.puntajeRanking && Objects.equals(nombre, jugador.nombre) && Objects.equals(pais, jugador.pais) && Objects.equals(tipoJuego, jugador.tipoJuego);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombre, pais, tipoJuego, edad, puestoRanking, puntajeRanking);
     }
 }

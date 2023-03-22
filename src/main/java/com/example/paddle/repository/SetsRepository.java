@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 //Indico que es un repositorio y habilito los metodos principales select, create, update, delete
-public interface SetsRepository extends JpaRepository<Sets,Integer> {
-    List<Sets> findById(int id);
+public interface SetsRepository extends JpaRepository<Sets,Long> {
+    List<Sets> findById(long id);
 }

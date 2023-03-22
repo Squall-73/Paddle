@@ -7,9 +7,9 @@ import java.util.*;
 
 @Repository
 //Indico que es un repositorio y habilito los metodos principales select, create, update, delete
-public interface PartidosRepository extends JpaRepository<Partidos, Integer> {
+public interface PartidosRepository extends JpaRepository<Partidos, Long> {
 
-    List<Partidos>  findById(int id);
+    List<Partidos>  findById(long id);
 
 
 }

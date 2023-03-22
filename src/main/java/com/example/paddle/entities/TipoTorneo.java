@@ -2,32 +2,29 @@ package com.example.paddle.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 
-@Table(name="tipo_torneo")
+@Table(name="tipoTorneo")
 public class TipoTorneo {
 
     //Primary key
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String tipo;
     private int puntaje;
 
     public TipoTorneo() {
     }
 
-    public TipoTorneo(String tipo, int puntaje) {
-        this.tipo = tipo;
-        this.puntaje = puntaje;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,5 +42,18 @@ public class TipoTorneo {
 
     public void setPuntaje(int puntaje) {
         this.puntaje = puntaje;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TipoTorneo that = (TipoTorneo) o;
+        return id == that.id && puntaje == that.puntaje && Objects.equals(tipo, that.tipo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, tipo, puntaje);
     }
 }

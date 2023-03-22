@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import com.example.paddle.entities.Jugador;
 
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
@@ -14,34 +15,53 @@ public class Equipo {
     @Id
     //campo ID autonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade = CascadeType.ALL)
-    private List<Jugador> Jugadores;
+    private long id;
 
+    @ManyToOne
+    @JoinColumn(name = "idJugadorA")
+    private Jugador jugadorA;
+
+    @ManyToOne
+    @JoinColumn(name = "idJugadorB")
+    private Jugador jugadorB;
 
     public Equipo() {
     }
 
-
-    public Equipo(List<Jugador> jugadores) {
-        Jugadores = jugadores;
-    }
-
-
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public List<Jugador> getJugadores() {
-        return Jugadores;
+    public Jugador getJugadorA() {
+        return jugadorA;
     }
 
-    public void setJugadores(List<Jugador> jugadores) {
-        Jugadores = jugadores;
+    public void setJugadorA(Jugador jugadorA) {
+        this.jugadorA = jugadorA;
+    }
+
+    public Jugador getJugadorB() {
+        return jugadorB;
+    }
+
+    public void setJugadorB(Jugador jugadorB) {
+        this.jugadorB = jugadorB;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Equipo equipo = (Equipo) o;
+        return id == equipo.id && Objects.equals(jugadorA, equipo.jugadorA) && Objects.equals(jugadorB, equipo.jugadorB);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, jugadorA, jugadorB);
     }
 }

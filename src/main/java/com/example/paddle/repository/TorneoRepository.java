@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 //Indico que es un repositorio y habilito los metodos principales select, create, update, delete
 
-public interface TorneoRepository extends JpaRepository<Torneo,Integer> {
+public interface TorneoRepository extends JpaRepository<Torneo,Long> {
 
-    List<Torneo> findById(int id);
+    List<Torneo> findById(long id);
     
 }

@@ -2,6 +2,8 @@ package com.example.paddle.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 
 @Table(name="torneo")
@@ -12,11 +14,11 @@ public class Torneo {
     @Id
     //campo ID auonumérico
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @OneToOne
-    @JoinColumn(name = "id_tipo")
+    @JoinColumn(name = "idTipo")
     private TipoTorneo tipoTorneo;
-    private int idCampeon;
+    private long idCampeon;
     private String fechaInicio;
     private String fechaFin;
     private String nombre;
@@ -24,20 +26,11 @@ public class Torneo {
     public Torneo() {
     }
 
-    public Torneo(int id, TipoTorneo tipoTorneo, int idCampeon, String fechaInicio, String fechaFin, String nombre) {
-        this.id = id;
-        this.tipoTorneo = tipoTorneo;
-        this.idCampeon = idCampeon;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.nombre = nombre;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -49,11 +42,11 @@ public class Torneo {
         this.tipoTorneo = tipoTorneo;
     }
 
-    public int getIdCampeon() {
+    public long getIdCampeon() {
         return idCampeon;
     }
 
-    public void setIdCampeon(int idCampeon) {
+    public void setIdCampeon(long idCampeon) {
         this.idCampeon = idCampeon;
     }
 
@@ -79,5 +72,18 @@ public class Torneo {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Torneo torneo = (Torneo) o;
+        return id == torneo.id && idCampeon == torneo.idCampeon && Objects.equals(tipoTorneo, torneo.tipoTorneo) && Objects.equals(fechaInicio, torneo.fechaInicio) && Objects.equals(fechaFin, torneo.fechaFin) && Objects.equals(nombre, torneo.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, tipoTorneo, idCampeon, fechaInicio, fechaFin, nombre);
     }
 }
