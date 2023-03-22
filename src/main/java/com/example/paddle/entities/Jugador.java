@@ -23,7 +23,17 @@ public class Jugador {
     public Jugador() {
     }
 
-     public long getId() {
+	public Jugador(String nombre, String pais, String tipoJuego, int edad, int puestoRanking, int puntajeRanking) {
+		this.id = id;
+		this.nombre = nombre;
+		this.pais = pais;
+		this.tipoJuego = tipoJuego;
+		this.edad = edad;
+		this.puestoRanking = puestoRanking;
+		this.puntajeRanking = puntajeRanking;
+	}
+
+	public long getId() {
         return id;
     }
 
