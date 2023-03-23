@@ -1,7 +1,9 @@
 package com.example.paddle.entities;
 import jakarta.persistence.*;
 
+import java.nio.charset.Charset;
 import java.util.Objects;
+import java.util.Random;
 
 @Entity
 
@@ -23,6 +25,29 @@ public class Jugador {
     public Jugador() {
     }
 
+    public Jugador genJugador(Jugador j) {
+
+        Random random= new Random();
+        byte[] array = new byte[7]; // length is bounded by 7
+        new Random().nextBytes(array);
+        String nombre = new String(array, Charset.forName("UTF-8"));
+        new Random().nextBytes(array);
+        String pais = new String(array, Charset.forName("UTF-8"));
+        new Random().nextBytes(array);
+        String tipoJuego = new String(array, Charset.forName("UTF-8"));
+        int edad = random.nextInt(100);
+        int puestoRanking = random.nextInt(100);
+        int puntajeRanking = random.nextInt(100);
+
+        j.setNombre(nombre);
+        j.setPais(pais);
+        j.setTipoJuego(tipoJuego);
+        j.setEdad(edad);
+        j.setPuestoRanking(puestoRanking);
+        j.setPuestoRanking(puntajeRanking);
+        return j;
+
+    }
 	public Jugador(String nombre, String pais, String tipoJuego, int edad, int puestoRanking, int puntajeRanking) {
 		this.id = id;
 		this.nombre = nombre;
