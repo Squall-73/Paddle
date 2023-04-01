@@ -7,11 +7,11 @@ import java.util.Random;
 public class JugadorHelper {
 	public static Jugador genJugador() {
 
-		com.example.paddle.entities.Jugador j = new com.example.paddle.entities.Jugador();
+		Jugador j = new Jugador();
 		Random random= new Random();
 		byte[] array = new byte[7]; // length is bounded by 7
 		new Random().nextBytes(array);
-		String nombre = null;
+		String nombre = new String(array, Charset.forName("UTF-8"));
 		new Random().nextBytes(array);
 		String pais = new String(array, Charset.forName("UTF-8"));
 		new Random().nextBytes(array);

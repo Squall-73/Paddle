@@ -11,5 +11,5 @@ import java.util.List;
 //Indico que es un repositorio y habilito los metodos principales select, create, update, delete
 public interface EquipoRepository extends JpaRepository<Equipo,Long> {
 
-    List<Equipo> findById(long id);
+    Equipo findById(long id);
 }
