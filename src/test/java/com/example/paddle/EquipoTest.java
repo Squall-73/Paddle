@@ -12,12 +12,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @SpringBootTest
-public class EquipoDobleTest {
+public class EquipoTest {
 
 	@Autowired
 	EquipoRepository equipoRepository;
+	Equipo equipoSingle= EquipoHelper.genEquipoSingle();
+	Equipo equipoDoble= EquipoHelper.genEquipoDoble();
 
-	Equipo equipoDoble=EquipoHelper.genEquipoDoble();
 
 	@Test
 	public void saveTest() {
@@ -26,15 +27,18 @@ public class EquipoDobleTest {
 		long id = equipoDoble.getId();
 		Equipo equipoOp = this.equipoRepository.findById(id);
 		assertEquals(equipoOp.getId(), equipoDoble.getId());
+
+
 	}
 
 	@Test
 	public void notNullTest() {
-
-		equipoRepository.save(equipoDoble);
-		Equipo equipoOp = this.equipoRepository.findById(equipoDoble.getId());
+		equipoRepository.save(equipoSingle);
+		Equipo equipoOp = this.equipoRepository.findById(equipoSingle.getId());
 		Jugador j =equipoOp.getJugadorA();
 		assertNotNull(j);
+
+
 
 	}
 

@@ -2,7 +2,6 @@ package com.example.paddle.helper;
 
 import com.example.paddle.entities.Equipo;
 
-
 public class EquipoHelper {
 
 	public static Equipo genEquipoDoble(){

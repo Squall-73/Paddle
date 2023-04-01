@@ -11,21 +11,13 @@ public class JugadorHelper {
 		Random random= new Random();
 		byte[] array = new byte[7]; // length is bounded by 7
 		new Random().nextBytes(array);
-		String nombre = new String(array, Charset.forName("UTF-8"));
-		new Random().nextBytes(array);
-		String pais = new String(array, Charset.forName("UTF-8"));
-		new Random().nextBytes(array);
-		String tipoJuego = new String(array, Charset.forName("UTF-8"));
-		int edad = random.nextInt(100);
-		int puestoRanking = random.nextInt(100);
-		int puntajeRanking = random.nextInt(100);
 
-		j.setNombre(nombre);
-		j.setPais(pais);
-		j.setTipoJuego(tipoJuego);
-		j.setEdad(edad);
-		j.setPuestoRanking(puestoRanking);
-		j.setPuestoRanking(puntajeRanking);
+		j.setNombre(new String(array, Charset.forName("UTF-8")));
+		j.setPais(new String(array, Charset.forName("UTF-8")));
+		j.setTipoJuego(new String(array, Charset.forName("UTF-8")));
+		j.setEdad(random.nextInt(100));
+		j.setPuestoRanking(random.nextInt(100));
+		j.setPuestoRanking(random.nextInt(100));
 
 		return j;
 

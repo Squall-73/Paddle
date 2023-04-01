@@ -12,6 +12,6 @@ import java.util.List;
 
 public interface TorneoRepository extends JpaRepository<Torneo,Long> {
 
-    List<Torneo> findById(long id);
+    Torneo findById(long id);
     
 }

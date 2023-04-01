@@ -12,6 +12,6 @@ import java.util.*;
 public interface TipoTorneoRepository extends JpaRepository<TipoTorneo,Long> {
 
 
-    List<TipoTorneo> findById(long id);
+    TipoTorneo findById(long id);
 
 }

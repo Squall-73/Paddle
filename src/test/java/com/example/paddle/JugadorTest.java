@@ -26,7 +26,7 @@ public class JugadorTest {
 				long id = j.getId();
 				Jugador jugadorOp = this.jugadorRepository.findById(id);
 				assertEquals(jugadorOp.getId(), j.getId());
-    }
+  		}
 
 	@Test
 		public void notNullTest() {
